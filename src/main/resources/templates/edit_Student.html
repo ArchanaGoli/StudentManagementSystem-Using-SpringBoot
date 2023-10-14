@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Enter Student details</title>
+		<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css}" rel="stylesheet">
+		<style>
+			body{
+				background-color: paleturquoise;
+				background-image: url('C:\Users\archa\OneDrive\Desktop\Spring boot\CSS.jpg');
+        }
+			
+		    .card-body{
+				background-color: beige;
+			}
+		</style>
+	</head>
+	<body>
+	   		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card"> 
+					<!-- col-lg-6 col-md-6 col-sm-6 supports devices of different sizes, justify-content-center means content adjucted to center, card is used to add border-->
+					<div class="card-body">
+						<form th:action="@{/savestud/{id}(id=${st.id})}" th:object="${updatestud}" method="POST">
+ 
+							<!-- object is the student object defined in controller, updatesud is the model attribute in controller class-->
+							<h1>Update Student</h1>
+							<br>
+							<div class="form-group">
+								<label>First Name</label>
+								<input type="text" name="firstname" th:field="*{Fname}" placeholder="enter first name">
+							</div>
+							<div class="form-group">
+								<label>Last Name</label>
+								<input type="text" name="lastname" th:field="*{Lname}" placeholder="enter last name">
+							</div>
+								<div class="form-group">
+								<label>Email ID</label>
+								<input type="email" name="Email id" th:field="*{email}" placeholder="enter Email ID">
+							</div>
+
+							<div class="box-footer">
+								<button type="submit" class="btn btn-primary">
+									Submit
+								</button>
+							</div>
+						</form>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
